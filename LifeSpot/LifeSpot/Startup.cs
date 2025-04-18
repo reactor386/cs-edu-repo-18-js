@@ -72,6 +72,19 @@ public class Startup
                 await context.Response.WriteAsync(html);
             });
 
+            endpoints.MapGet("/about", async context =>
+            {
+                var viewPath = Path.Combine(Directory.GetCurrentDirectory(), "Views", "about.html");
+                
+                // Загружаем шаблон страницы, вставляя в него элементы
+                var html =  new StringBuilder(await File.ReadAllTextAsync(viewPath))
+                    .Replace("<!--SIDEBAR-->", sideBarHtml)
+                    .Replace("<!--FOOTER-->", footerHtml)
+                    .ToString();;
+                
+                await context.Response.WriteAsync(html);
+            });
+
             // добавляем новый маппинг в раздел Endpoints
             //  чтобы при обращении к [<link href="../wwwroot/css/index.css" rel="stylesheet" type="text/css">]
             //  из [index.html] браузер мог загрузить внешние стили
@@ -97,6 +110,14 @@ public class Startup
             endpoints.MapGet("/wwwroot/js/testing.js", async context =>
             {
                 var jsPath = Path.Combine(Directory.GetCurrentDirectory(), "wwwroot", "js", "testing.js");
+                var js = await File.ReadAllTextAsync(jsPath);
+                await context.Response.WriteAsync(js);
+            });
+
+            // JS страницы О проекте
+            endpoints.MapGet("/wwwroot/js/about.js", async context =>
+            {
+                var jsPath = Path.Combine(Directory.GetCurrentDirectory(), "wwwroot", "js", "about.js");
                 var js = await File.ReadAllTextAsync(jsPath);
                 await context.Response.WriteAsync(js);
             });
