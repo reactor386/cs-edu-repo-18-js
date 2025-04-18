@@ -1,0 +1,222 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>LifeSpot</title>
+  <!-- Подключение стилей по отностиельному пути из внешнего файла -->
+  <link href="../wwwroot/css/index.css" rel="stylesheet" type="text/css">
+
+  <!-- Подключение Javascript внутри страницы
+  <script>
+    // Запросим возраст пользователя и сохраним в переменную
+    let age = prompt("Пожалуйста, введите ваш возраст");
+
+    if (age >= 18) {
+        // Те, кто старше 18, увидят приветствие и будут направлены на сайт
+        alert("Приветствуем на LifeSpot! " + new Date().toLocaleString());
+    }
+    else {
+        // Если введенное число < 18, либо если введено не число -
+        // пользователь будет перенаправлен
+        alert("Наши трансляции не предназначены для лиц моложе 18 лет. Вы будете перенаправлены");
+        window.location.href = "http://www.google.com"
+    }
+  </script>
+  -->
+  <!-- Подключение Javascript внешним файлом -->
+  <script type="text/javascript" src="../wwwroot/js/index.js"></script>
+
+  <!-- Внутренний скрипт с вызовами функций из index.js -->
+  <script>
+
+    /*
+    // Вызов по имени переменной
+    sessionHandler();
+    */
+
+    /*
+    // Создадим и обработаем сессию
+    let session = handleSession();
+
+    // Логируем в консоль
+    sessionLog(session);
+    */
+
+    
+    // Проверка на возраст
+    // checkAge();
+    
+    // сохранение сессии
+    handleSession();
+    
+    // вывод данных сессии в консоль
+    sessionLog();
+ 
+
+    // функция для получения пользовательского ввода   
+    const inputParseFunction = function() {
+      return document.getElementsByTagName('input')[0].value.toLowerCase();
+    }
+
+  </script>
+
+</head>
+
+<!-- Хедер страницы находится над тегом body -->
+<header id="header-index">
+  <!-- Заголовок страницы -->
+  <h1>LifeSpot — прямые трансляции с улиц</h1>
+  <!-- Параграф -->
+  <p>Покажем, что происходит прямо сейчас</p>
+  
+  <!-- -->
+  <!-- атрибут placeholder выводит текст внутри поля формы, который исчезает при получении фокуса -->
+  <!-- атрибут oninput обрабатывает пользовательский ввод. вызывается код, который ему присвоен -->
+  <!--
+  <input type="text" placeholder="Найти видео" oninput=" /* Вот тут будет располагаться наш Javascript - код */ " size=50%>
+  -->
+  <input type="text" placeholder="Найти видео" oninput="
+
+    /* alert('Пользователь ввёл текст!') */
+
+    /*
+    // Получим все элементы input с нашей страницы
+    let elements = document.getElementsByTagName('input');
+    // Получим первый элемент DOM в коллекции
+    let element = elements[0];
+    // Получим строковое значение
+    let elementText = element.value;
+    // Выведем во всплывающее окно
+    alert(elementText);
+    */
+
+    /*
+    // Получим все контейнеры с видео
+    let elements = document.getElementsByClassName('video-container');
+    // Пробежимся в цикле и выведем все в консоль
+    for (let i = 0; i <= elements.length; i++ ) {
+      // Получим всё что внутри контейнера
+      let childElements = elements[i];
+      // Получим элемент, содержащий описание видео
+      // Он у нас единственный с тегом h3, снова воспользуемся поиском по тегу,
+      let videoDescription = childElements.getElementsByTagName('h3')[0];
+      // Выведем его текст на консоль
+      console.log(videoDescription.innerText);
+    }
+    */
+
+    /*
+    // Код ниже отрабатывает каждый раз при вводе символа в input
+    // Сохраняем текст пользовательского запроса
+    let inputString = document.getElementsByTagName('input')[0].value.toLowerCase();
+    // Находим контейнеры с видео, которые необходимо фильтровать
+    let elements = document.getElementsByClassName('video-container');
+    // Пробегаемся по контейнерам
+    for (let i = elements.length - 1; i >= 0; i--) {
+      // Получим всё что внутри контейнера
+      let childElements = elements[i];
+      // Вытаскиваем текст описания видео, которое необходимо отфильтровать
+      let videoText = childElements.querySelector('.video-title').innerText.toLowerCase();
+      // Выполняем фильтрацию, сравнивая значения в нижнем регистре
+      if(!videoText.includes(inputString)){
+          elements[i].style.display = 'none';
+      } else {
+          elements[i].style.display = 'inline-block';
+      }
+    }
+    */
+
+    /*
+    // Вызов функции
+    filterContent();
+    */
+
+    /*
+    // Вызов по имени переменной
+    contentFilter();
+    */
+
+    /*
+    // Аргумент - значение, введённое пользователем
+    filterContent(document.getElementsByTagName('input')[0].value.toLowerCase());
+    */
+
+    /*
+    // Функция объявлена через expression
+    const inputParseFunction = function() {
+      return document.getElementsByTagName('input')[0].value.toLowerCase();
+    }
+
+    // Вызов (функция в аргумент передаётся без круглых скобок)
+    filterContent(inputParseFunction);
+    */
+
+    filterContent();
+
+  " size=50%>
+
+</header>
+
+<!-- Сайд-бар страницы -->
+<!--
+<aside id="sidebar">
+  <div class="navbar">
+    <a href="/"><p>Все трансляции</p></a>
+    <a href="/about"><p>О проекте</p></a>
+    <a href="/testing"><p>Тестирование</p></a>
+  </div>
+</aside>
+-->
+
+<!--SIDEBAR-->
+
+<body>
+  
+<!-- 
+    <div class="input-test">
+      <label for="site-search">Поиск видео:</label>
+      <input id="site-search" type="search" placeholder="Найти видео" name="q" size="80">
+      <button>Поиск</button>
+    </div>
+ -->
+ 
+  <div class="bordered">
+
+    <!-- Санкт-Петербург -->
+    <div class="video-container">
+      <iframe width="560" height="315" src="https://www.youtube.com/embed/wCcMcaiRbhM" title="YouTube video player"
+        frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen>
+      </iframe>
+      <h3 class="video-title">Санкт-Петербург, Невский Проспект</h3>
+    </div>
+    <!-- Нью-Йорк -->
+    <div class="video-container">
+      <iframe width="560" height="315" src="https://www.youtube.com/embed/srlpC5tmhYs" title="YouTube video player"
+        frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen>
+      </iframe>
+      <h3 class="video-title">Нью-Йорк, Брайант Парк</h3>
+    </div>
+    <!-- Лондон -->
+    <div class="video-container">
+      <iframe width="560" height="315" src="https://www.youtube.com/embed/muVgPUnU7qA" title="YouTube video player"
+        frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen>
+      </iframe>
+      <h3 class="video-title">Лондон, автобусный маршрут</h3>
+    </div>
+
+  </div>
+</body>
+
+<!-- Футер страницы находится под тегом body -->
+
+<!--
+<footer>
+  <p>LifeSpot - видео трансляции</p>
+  <p>Связь с разработчиком: mailbox@fakemail.com</p>
+</footer>
+-->
+
+<!--FOOTER-->
+
+</html>
